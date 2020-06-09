@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Category</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<!--  Input -->
+  <ion-content padding>
+ <form action="">
+  <ion-item>
+    <ion-label>Name:</ion-label>
+    <ion-input class="form-control" name="nombrecategoria" [(ngModel)]="category.nombrecategoria" placeholder="Enter Name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description:</ion-label>
+    <ion-input class="form-control" name="descripcion" [(ngModel)]="category.descripcion" placeholder="Enter Description"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <button class="btn btn-success btn-block" (click)="edit ? updateCategory() : saveCategory()">
+      Save
+    </button>
+  </ion-item>
+ </form>
+
+</ion-content> 

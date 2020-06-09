@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--  Input -->
+<ion-content padding>
+  <ion-item>
+    <ion-label>Name</ion-label>
+    <ion-input [(ngModel)]="data.nombre" placeholder="Enter Name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Category ID</ion-label>
+    <ion-input [(ngModel)]="data.idcategoria" placeholder="Enter Category ID"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Warehouse ID:</ion-label>
+    <ion-input [(ngModel)]="data.idwarehouse" placeholder="Enter warehouse"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Stock</ion-label>
+    <ion-input [(ngModel)]="data.stock" placeholder="Enter Stock"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-input [(ngModel)]="data.descripcion" placeholder="Enter Description"></ion-input>
+  </ion-item>
+
+ <!--  Button to add -->
+  <ion-item>
+    <ion-button (click)="submitForm()">
+      Add
+    </ion-button>
+  </ion-item>
+
+</ion-content>

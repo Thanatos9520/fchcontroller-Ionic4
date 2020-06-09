@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Update Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Name:</ion-label>
+    <ion-input [(ngModel)]="p.nombre" placeholder="Enter Name">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Category ID:</ion-label>
+    <ion-input [(ngModel)]="p.idcategoria" placeholder="Enter Category">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Stock:</ion-label>
+    <ion-input [(ngModel)]="p.stock" placeholder="Enter Stock">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description:</ion-label>
+    <ion-input [(ngModel)]="p.descripcion" placeholder="Enter Description">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description:</ion-label>
+    <ion-input [(ngModel)]="p.imagen" placeholder="Enter Description">
+    </ion-input>
+  </ion-item>
+
+  <ion-button (click)="update()" color="success" size="small">
+    Update
+  </ion-button>
+  <ion-button [routerLink]="[ '/list']" color="danger" size="small">
+    Cancel
+  </ion-button>
+</ion-content>

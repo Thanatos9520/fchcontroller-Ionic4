@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Warehouse
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="form-group">
+     <input type="text" class="form-control" name="filterPost" placeholder="Search..." [(ngModel)]="filterPost">
+  </div>
+     <div class="table-responsive">
+      <table class="table table-hover">
+        <tbody>
+          <ion-list>
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Code</th> 
+                  <th scope="col">City Warehouse </th>
+                  <th scope="col">Actions</th>   
+                </tr>
+              </thead>
+            <tr *ngFor="let item of warehouse | filter: filterPost | paginate: { itemsPerPage: 4, currentPage: pageActual }">
+              <td>{{item.nombrewarehouse}}</td>
+              <td>{{item.numberwarehouse}}</td>
+              <td>{{item.citywarehouse}}</td> 
+              <td style="display: flex">
+                  <ion-button color="warning" size="small" [routerLink]="['/warehouses/edit', item.idwarehouse]">
+                    <ion-icon name="create"></ion-icon>
+                  </ion-button>
+                  <ion-button color="danger" size="small" (click)="deleteWarehouse(item.idwarehouse)">
+                    <ion-icon name="trash"></ion-icon>
+                  </ion-button>
+                </td>
+          </tr>
+          </ion-list>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+     </div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button [routerLink]="['/warehouses/add']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Products
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="form-group">
+     <input type="text" class="form-control" name="filterPost" placeholder="Search..." [(ngModel)]="filterP">
+  </div>
+     <div class="table-responsive">
+      <table class="table table-hover">
+        <tbody>
+          <ion-list>
+              <thead class="thead-dark">
+                <tr>
+  
+                  <th scope="col">Photo</th>  
+                  <th scope="col">Name</th>
+                  <th scope="col">Code</th> 
+                  <th scope="col">Category </th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Actions</th>   
+                </tr>
+              </thead>
+            <tr *ngFor="let item of products | filter: filterPost | paginate: { itemsPerPage: 4, currentPage: pageActual }">
+              <ion-avatar >
+                <img src="{{item.imagen}}" /> 
+              </ion-avatar>
+              <td>{{item.nombre}}</td>
+              <td>{{item.codigo}}</td>
+              <td>{{item.categoria}}</td>
+              <td>{{item.stock}}</td> 
+              <td style="display: flex">
+                  <ion-button color="warning" size="small" [routerLink]="['/products/edit', item.idarticulo]">
+                    <ion-icon name="create"></ion-icon>
+                  </ion-button>
+                  <ion-button color="danger" size="small" (click)="deleteProduct(item.idarticulo)">
+                    <ion-icon name="trash"></ion-icon>
+                  </ion-button>
+                </td>
+          </tr>
+          </ion-list>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+     </div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button [routerLink]="['/products/add']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </ion-content>

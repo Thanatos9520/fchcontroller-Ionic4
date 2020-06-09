@@ -1,0 +1,66 @@
+ <ion-header>
+  <ion-toolbar>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<!--  Input -->
+  <ion-content padding>
+  <ion-item>
+    <ion-label>Name</ion-label>
+    <ion-input  name="nombre" [(ngModel)]="products.nombre" placeholder="Enter Name"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <label>Category: </label>
+    <p>
+      <select id="listCategory" [(ngModel)]="products.idcategoria">
+        <option value="0">Select a Option </option>
+        <option style="width: 20px;" *ngFor="let item of categoryList" value="{{item.idcategoria}}"> {{item.nombrecategoria}} </option>
+      </select>
+      </p>
+  </ion-item>
+   
+  <ion-item>
+    <label>Warehouse: </label>
+    <p>
+      <select id="listWarehouse" [(ngModel)]="products.idwarehouse">
+        <option value="0">Select a Option </option>
+        <option style="width: 20px;" *ngFor="let item2 of warehouseList" value="{{item2.idwarehouse}}"> {{item2.nombrewarehouse}} </option>
+      </select>
+      </p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Stock: </ion-label>
+    <ion-input  name="stock" [(ngModel)]="products.stock" placeholder="Enter Stock"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Description:</ion-label>
+    <ion-textarea  name="descripcion" [(ngModel)]="products.descripcion" placeholder="Enter Description"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-button (click)="photoService.addNewToGallery()" color="primary" size="small">
+      Take Photo
+    </ion-button>
+    
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Photo:</ion-label>
+    <img style="width:70%; height:70%;" class="card-img-top"  [src]="products.imagen" />
+  </ion-item>
+  
+  <ion-item>
+    <ion-button (click)="edit ? updateProduct() : saveProduct()" color="primary" size="small">
+      Save
+    </ion-button>
+    <ion-button [routerLink]="[ '/products']" color="danger" size="small">
+      Cancel
+    </ion-button>
+  </ion-item>
+
+
+</ion-content> 
